@@ -51,6 +51,12 @@ const Navbar = () => {
       icon: <Server className="h-5 w-5 text-lime-500" />,
       href: "/services/dedicated",
     },
+    {
+      title: "Minecraft Domains",
+      description: "Affordable domain names for your Minecraft server",
+      icon: <Server className="h-5 w-5 text-lime-500" />,
+      href: "/minecraft/domains",
+    },
   ];
 
   const support = [
