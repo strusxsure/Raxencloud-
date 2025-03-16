@@ -1,8 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import Navbar from "@/components/layout/Navbar";
-import Footer from "@/components/layout/Footer";
 
 const MinecraftDomainsPage = () => {
   const domains = [
@@ -42,8 +40,6 @@ const MinecraftDomainsPage = () => {
 
   return (
     <div className="bg-gray-950 min-h-screen">
-      <Navbar />
-
       {/* Hero Section */}
       <section className="pt-32 pb-20 px-4 relative overflow-hidden">
         {/* Animated background */}
@@ -197,7 +193,7 @@ const MinecraftDomainsPage = () => {
         </div>
       </section>
 
-      <Footer />
+      {/* Footer is now in the Layout component */}
     </div>
   );
 };
