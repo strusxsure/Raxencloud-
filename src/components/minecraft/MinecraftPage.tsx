@@ -551,13 +551,13 @@ const MinecraftPage = () => {
       <Footer />
 
       {/* Plan selection dialog */}
-      <AnimatePresence>
+      <AnimatePresence mode="wait">
         {selectedPlan && (
           <Dialog
             open={!!selectedPlan}
             onOpenChange={() => setSelectedPlan(null)}
           >
-            <DialogContent className="bg-gray-900 border border-gray-800 text-white max-w-lg">
+            <DialogContent className="bg-gray-900 border border-gray-800 text-white max-w-lg animate-in fade-in-50 slide-in-from-bottom-10 duration-300">
               <DialogHeader>
                 <div className="flex items-center gap-3">
                   {selectedPlan.icon && <div>{selectedPlan.icon}</div>}

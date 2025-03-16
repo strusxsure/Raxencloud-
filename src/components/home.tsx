@@ -77,13 +77,13 @@ const Home = () => {
       <Footer />
 
       {/* Minecraft redirect dialog */}
-      <AnimatePresence>
+      <AnimatePresence mode="wait">
         {showMinecraftDialog && (
           <Dialog
             open={showMinecraftDialog}
             onOpenChange={setShowMinecraftDialog}
           >
-            <DialogContent className="bg-gray-900 border border-gray-800 text-white max-w-md">
+            <DialogContent className="bg-gray-900 border border-gray-800 text-white max-w-md animate-in fade-in-50 slide-in-from-bottom-10 duration-300">
               <DialogHeader>
                 <DialogTitle className="text-lime-500">
                   Minecraft Hosting

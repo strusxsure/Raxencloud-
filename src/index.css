@@ -137,3 +137,40 @@
     linear-gradient(to bottom, rgba(163, 230, 53, 0.1) 1px, transparent 1px);
   background-size: 20px 20px;
 }
+
+/* Dialog animations */
+.animate-in {
+  animation-duration: 0.3s;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
+}
+
+.fade-in-50 {
+  animation-name: fadeIn50;
+}
+
+.slide-in-from-bottom-10 {
+  animation-name: slideInFromBottom10;
+}
+
+@keyframes fadeIn50 {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInFromBottom10 {
+  from {
+    transform: translateY(10%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.duration-300 {
+  animation-duration: 300ms;
+}

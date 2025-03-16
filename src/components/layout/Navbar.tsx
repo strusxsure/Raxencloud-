@@ -81,9 +81,9 @@ const Navbar = () => {
         <Link to="/" className="flex items-center space-x-2 group">
           <div className="relative h-8 w-8 rounded-full bg-lime-500 overflow-hidden transition-all duration-300 group-hover:scale-110">
             <img
-              src="https://i.imgur.com/4v0GNZP.jpeg"
+              src="https://i.imgur.com/tBBSN7y.jpeg"
               alt="RaxenCloud Logo"
-              className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              className="absolute inset-0 w-full h-full object-cover opacity-100 transition-opacity duration-300"
             />
             <div className="absolute inset-1 rounded-full bg-black group-hover:scale-90 transition-transform duration-300"></div>
           </div>
@@ -212,8 +212,12 @@ const Navbar = () => {
               <div className="flex flex-col h-full">
                 <div className="flex items-center justify-between p-4 border-b border-gray-800">
                   <div className="flex items-center space-x-2">
-                    <div className="relative h-8 w-8 rounded-full bg-lime-500">
-                      <div className="absolute inset-1 rounded-full bg-gray-900"></div>
+                    <div className="relative h-8 w-8 rounded-full bg-lime-500 overflow-hidden">
+                      <img
+                        src="https://i.imgur.com/tBBSN7y.jpeg"
+                        alt="RaxenCloud Logo"
+                        className="absolute inset-0 w-full h-full object-cover"
+                      />
                     </div>
                     <span className="text-xl font-bold text-white">
                       RaxenCloud

@@ -145,10 +145,10 @@ const PricingCard = ({
         </Card>
       </motion.div>
 
-      <AnimatePresence>
+      <AnimatePresence mode="wait">
         {showDialog && (
           <Dialog open={showDialog} onOpenChange={setShowDialog}>
-            <DialogContent className="bg-gray-900 border border-gray-800 text-white max-w-md">
+            <DialogContent className="bg-gray-900 border border-gray-800 text-white max-w-md animate-in fade-in-50 slide-in-from-bottom-10 duration-300">
               <DialogHeader>
                 <DialogTitle
                   className={popular ? "text-lime-500" : "text-white"}
