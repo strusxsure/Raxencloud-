@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { useAuth } from "@/contexts/AuthContext";
+import UserMenu from "./UserMenu";
 import { cn } from "@/lib/utils";
 import {
   NavigationMenu,
@@ -21,10 +23,12 @@ import {
   LifeBuoy,
   Settings,
   Users,
+  LogOut,
 } from "lucide-react";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { user } = useAuth();
 
   const services = [
     {
@@ -194,15 +198,25 @@ const Navbar = () => {
           </NavigationMenu>
 
           <div className="hidden lg:flex items-center space-x-4">
-            <Button
-              variant="ghost"
-              className="text-white hover:text-lime-400 hover:bg-gray-800"
-            >
-              Login
-            </Button>
-            <Button className="bg-lime-500 text-black hover:bg-lime-400">
-              Sign Up
-            </Button>
+            {user ? (
+              <UserMenu />
+            ) : (
+              <>
+                <Button
+                  variant="ghost"
+                  className="text-white hover:text-lime-400 hover:bg-gray-800"
+                  asChild
+                >
+                  <Link to="/login">Login</Link>
+                </Button>
+                <Button
+                  className="bg-lime-500 text-black hover:bg-lime-400"
+                  asChild
+                >
+                  <Link to="/register">Sign Up</Link>
+                </Button>
+              </>
+            )}
           </div>
         </div>
 
@@ -310,17 +324,40 @@ const Navbar = () => {
                 </div>
 
                 <div className="p-6 border-t border-gray-800">
-                  <div className="grid grid-cols-2 gap-4">
+                  {user ? (
                     <Button
                       variant="outline"
-                      className="w-full border-gray-700 text-white hover:bg-gray-800 hover:text-lime-400"
+                      className="w-full border-gray-700 text-white hover:bg-gray-800 hover:text-red-400"
+                      onClick={async () => {
+                        const { signOut } = useAuth();
+                        await signOut();
+                        setIsOpen(false);
+                      }}
                     >
-                      Login
+                      <LogOut className="mr-2 h-4 w-4 text-red-500" />
+                      Log out
                     </Button>
-                    <Button className="w-full bg-lime-500 text-black hover:bg-lime-400">
-                      Sign Up
-                    </Button>
-                  </div>
+                  ) : (
+                    <div className="grid grid-cols-2 gap-4">
+                      <Button
+                        variant="outline"
+                        className="w-full border-gray-700 text-white hover:bg-gray-800 hover:text-lime-400"
+                        asChild
+                      >
+                        <Link to="/login" onClick={() => setIsOpen(false)}>
+                          Login
+                        </Link>
+                      </Button>
+                      <Button
+                        className="w-full bg-lime-500 text-black hover:bg-lime-400"
+                        asChild
+                      >
+                        <Link to="/register" onClick={() => setIsOpen(false)}>
+                          Sign Up
+                        </Link>
+                      </Button>
+                    </div>
+                  )}
                 </div>
               </div>
             </SheetContent>
