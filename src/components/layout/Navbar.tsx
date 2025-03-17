@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
+import { signOut } from "@/lib/auth";
 import UserMenu from "./UserMenu";
 import { cn } from "@/lib/utils";
 import {
@@ -329,7 +330,6 @@ const Navbar = () => {
                       variant="outline"
                       className="w-full border-gray-700 text-white hover:bg-gray-800 hover:text-red-400"
                       onClick={async () => {
-                        const { signOut } = useAuth();
                         await signOut();
                         setIsOpen(false);
                       }}
